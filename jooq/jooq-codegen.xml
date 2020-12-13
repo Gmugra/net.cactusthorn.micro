@@ -1,0 +1,52 @@
+<configuration xmlns="http://www.jooq.org/xsd/jooq-codegen-3.14.0.xsd">
+    <generator>
+
+        <database>
+
+            <name>org.jooq.meta.extensions.ddl.DDLDatabase</name>
+
+            <properties>
+
+                <property>
+                  <key>sort</key>
+                  <value>flyway</value>
+                </property>
+
+                <property>
+                    <key>unqualifiedSchema</key>
+                    <value>none</value>
+                </property>
+
+                <property>
+                    <key>defaultNameCase</key>
+                    <value>lower</value>
+                </property>
+
+            </properties>
+
+            <embeddables>
+
+                <embeddable>
+                    <name>audit</name>
+                    <fields>
+                        <field><expression>created_on</expression></field>
+                        <field><expression>modified_on</expression></field>
+                    </fields>
+                </embeddable>
+
+            </embeddables>
+
+        </database>
+
+        <generate>
+            <javaTimeTypes>true</javaTimeTypes>
+        </generate>
+
+
+        <target>
+          <packageName>net.cactusthorn.micro.db.jooq</packageName>
+          <directory>generated-src/main/java</directory>
+        </target>
+
+    </generator>
+</configuration>
