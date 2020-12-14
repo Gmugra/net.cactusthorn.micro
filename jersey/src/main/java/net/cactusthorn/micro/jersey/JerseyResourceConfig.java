@@ -1,4 +1,4 @@
-package net.cactusthorn.micro.jettyjersey.rest;
+package net.cactusthorn.micro.jersey;
 
 import java.util.Map;
 
@@ -9,6 +9,8 @@ import org.glassfish.hk2.utilities.binding.AbstractBinder;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import net.cactusthorn.micro.jersey.rest.EntryPoint;
 
 public class JerseyResourceConfig extends ResourceConfig {
 

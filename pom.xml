@@ -31,6 +31,7 @@
         <dependency.logback-classic>1.2.3</dependency.logback-classic>
         <dependency.jetty>9.4.35.v20201120</dependency.jetty>
         <dependency.jersey>2.32</dependency.jersey>
+        <dependency.servlet-api>3.1.0</dependency.servlet-api>
 
         <dependency.junit>4.13.1</dependency.junit>
 
@@ -51,7 +52,8 @@
         <module>core</module>
         <module>db</module>
         <module>jooq</module>
-        <module>jetty-jersey</module>
+        <module>jersey</module>
+        <module>jetty</module>
     </modules>
 
     <dependencies>
@@ -145,6 +147,11 @@
                 <groupId>org.glassfish.jersey.inject</groupId>
                 <artifactId>jersey-hk2</artifactId>
                 <version>${dependency.jersey}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>${dependency.servlet-api}</version>
             </dependency>
             <dependency>
                 <groupId>org.glassfish.jersey.media</groupId>

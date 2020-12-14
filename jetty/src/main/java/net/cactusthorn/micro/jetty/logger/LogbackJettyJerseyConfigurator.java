@@ -1,4 +1,4 @@
-package net.cactusthorn.micro.jettyjersey.logger;
+package net.cactusthorn.micro.jetty.logger;
 
 import net.cactusthorn.micro.core.logger.LogbackCoreConfigurator;
 

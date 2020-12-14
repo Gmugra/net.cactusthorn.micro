@@ -8,7 +8,7 @@ import org.aeonbits.owner.Config;
 @Sources({ CONFIG_SYSTEM_PROPERTY, CONFIG_CURRENT_WORKING_FOLDER, CONFIG_CLASSPATH })
 public interface FlywayConf extends Config {
 
-    @Key("flyway.locations")
+    @Config.Key("flyway.locations")
     @Separator(";")
     public String[] locations();
 }

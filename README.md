@@ -1,4 +1,18 @@
 
+
+Prove of concept, which shows how to construct you own, feature reach, java based web-framework from public available libraries.
+
+Idea is to check, is it really possible to get a set of tools, sufficient for modern web application, which normally we got from big frameworks (e.g. Spring) with **very small effort**.
+
+Potential benefits of this approach:
+* To get exactly tools which you want
+* To have in application only JARs which you need
+* To have much more control without any "magic"
+* To minimize size of final application artifact
+
+============================
+
+
 mvn -Pjooq generate-sources
 
 mvn -Pflyway initialize -Dflyway.defaultSchema=test_jooq -Dflyway.user=postgres -Dflyway.password=postgres

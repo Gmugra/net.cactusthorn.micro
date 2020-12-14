@@ -1,4 +1,4 @@
-package net.cactusthorn.micro.jettyjersey.rest;
+package net.cactusthorn.micro.jersey.rest;
 
 import javax.xml.bind.annotation.*;
 

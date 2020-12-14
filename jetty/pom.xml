@@ -10,9 +10,9 @@
         <version>0.2</version>
     </parent>
 
-    <artifactId>jetty-jersey</artifactId>
+    <artifactId>jetty</artifactId>
     <packaging>jar</packaging>
-    <name>Micro :: Jetty+Jersey</name>
+    <name>Micro :: Jetty</name>
 
     <dependencies>
 
@@ -31,6 +31,11 @@
             <artifactId>jooq</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>net.cactusthorn.micro</groupId>
+            <artifactId>jersey</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
@@ -45,25 +50,6 @@
             <artifactId>jetty-util</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.glassfish.jersey.core</groupId>
-            <artifactId>jersey-server</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.glassfish.jersey.containers</groupId>
-            <artifactId>jersey-container-servlet-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.glassfish.jersey.inject</groupId>
-            <artifactId>jersey-hk2</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.glassfish.jersey.media</groupId>
-            <artifactId>jersey-media-json-jackson</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-
-
     </dependencies>
 
     <build>
@@ -74,7 +60,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>net.cactusthorn.micro.jettyjersey.JettyJerseyApplication</mainClass>
+                            <mainClass>net.cactusthorn.micro.jetty.JettyApplication</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
