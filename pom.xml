@@ -32,6 +32,7 @@
         <dependency.jetty>9.4.35.v20201120</dependency.jetty>
         <dependency.jersey>2.32</dependency.jersey>
         <dependency.servlet-api>3.1.0</dependency.servlet-api>
+        <dependency.hibernate>5.4.25.Final</dependency.hibernate>
 
         <dependency.junit>4.13.1</dependency.junit>
 
@@ -52,6 +53,7 @@
         <module>core</module>
         <module>db</module>
         <module>jooq</module>
+        <module>jpahibernate</module>
         <module>jersey</module>
         <module>jetty</module>
     </modules>
@@ -99,12 +101,6 @@
             </dependency>
 
             <dependency>
-                <groupId>org.jooq</groupId>
-                <artifactId>jooq</artifactId>
-                <version>${dependency.jooq}</version>
-            </dependency>
-
-            <dependency>
                 <groupId>com.zaxxer</groupId>
                 <artifactId>HikariCP</artifactId>
                 <version>${dependency.HikariCP}</version>
@@ -114,6 +110,18 @@
                 <groupId>org.flywaydb</groupId>
                 <artifactId>flyway-core</artifactId>
                 <version>${dependency.flyway}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.jooq</groupId>
+                <artifactId>jooq</artifactId>
+                <version>${dependency.jooq}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-entitymanager</artifactId>
+                <version>${dependency.hibernate}</version>
             </dependency>
 
             <dependency>
