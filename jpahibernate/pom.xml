@@ -75,11 +75,6 @@
                         <artifactId>maven-assembly-plugin</artifactId>
                     </plugin>
 
-                    <plugin>
-                        <groupId>com.jolira</groupId>
-                        <artifactId>onejar-maven-plugin</artifactId>
-                    </plugin>
-
                 </plugins>
             </build>
         </profile>
