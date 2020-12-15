@@ -17,9 +17,11 @@ mvn -Pjooq generate-sources
 
 mvn -Pflyway initialize -Dflyway.defaultSchema=test_jooq -Dflyway.user=postgres -Dflyway.password=postgres
 
-java -Dmicro-config-path=/xx/aaa
+mvn -Pfull package
 
-e.g. 
+e.g.
+java -Dpass=megapass -Dmicro-config-path=/xx/aaa -jar db-0.2.jar
+
 java -Dpass=megapass -jar db-0.2.jar
 
 ---------------
