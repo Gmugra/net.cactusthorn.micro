@@ -1,16 +1,16 @@
 package net.cactusthorn.micro.core.configuration;
 
+import java.util.List;
+
 import org.aeonbits.owner.Config;
-import org.aeonbits.owner.Config.LoadPolicy;
-import org.aeonbits.owner.Config.LoadType;
-import org.aeonbits.owner.Config.Sources;
+import static org.aeonbits.owner.Config.*;
 
 @LoadPolicy(LoadType.MERGE)
 @Sources({ "jar:///manifest?Application-Name=MICRO" })
 public interface AppInfo extends Config {
 
     String CONFIG_FILE_NAME = "micro.properties";
-    String CONFIG_SYSTEM_PROPERTY = "file:/${micro-config-path}/"+ CONFIG_FILE_NAME;
+    String CONFIG_SYSTEM_PROPERTY = "file:/${micro-config-path}/" + CONFIG_FILE_NAME;
     String CONFIG_CURRENT_WORKING_FOLDER = "file:./" + CONFIG_FILE_NAME;
     String CONFIG_CLASSPATH = "classpath:" + CONFIG_FILE_NAME;
 
@@ -25,4 +25,9 @@ public interface AppInfo extends Config {
     @Key("Implementation-Title")
     @DefaultValue("unknown")
     String title();
+
+    @Separator(" ")
+    @Key("Class-Path")
+    @DefaultValue("unknown")
+    List<String> classPath();
 }

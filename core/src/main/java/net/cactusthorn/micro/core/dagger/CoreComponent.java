@@ -4,10 +4,13 @@ import javax.inject.Singleton;
 import dagger.Component;
 
 import net.cactusthorn.micro.core.banner.Banner;
+import net.cactusthorn.micro.core.configuration.AppInfo;
 
 @Component(modules = { CoreModule.class })
 @Singleton
 public interface CoreComponent {
 
-    public Banner banner();
+    Banner banner();
+
+    AppInfo appInfo();
 }

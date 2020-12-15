@@ -19,6 +19,9 @@ mvn -Pflyway initialize -Dflyway.defaultSchema=test_jooq -Dflyway.user=postgres 
 
 java -Dmicro-config-path=/xx/aaa
 
+e.g. 
+java -Dpass=megapass -jar db-0.2.jar
+
 ---------------
 
 one-jar -- 70Kb (rejected: problems)

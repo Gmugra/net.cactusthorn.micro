@@ -33,6 +33,7 @@
         <dependency.jersey>2.32</dependency.jersey>
         <dependency.servlet-api>3.1.0</dependency.servlet-api>
         <dependency.hibernate>5.4.25.Final</dependency.hibernate>
+        <dependency.jasypt>1.9.3</dependency.jasypt>
 
         <dependency.junit>4.13.1</dependency.junit>
 
@@ -80,6 +81,13 @@
 
     <dependencyManagement>
         <dependencies>
+
+            <dependency>
+                <groupId>org.jasypt</groupId>
+                <artifactId>jasypt</artifactId>
+                <classifier>lite</classifier>
+                <version>${dependency.jasypt}</version>
+            </dependency>
 
             <dependency>
                 <groupId>com.google.dagger</groupId>
