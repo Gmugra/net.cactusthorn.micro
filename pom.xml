@@ -20,6 +20,7 @@
         <jdk.version>1.8</jdk.version>
 
         <skip.jooq-codegen>true</skip.jooq-codegen>
+        <skip.assembly>true</skip.assembly>
 
         <dependency.dagger>2.30.1</dependency.dagger>
         <dependency.owner>1.0.12</dependency.owner>
@@ -200,26 +201,52 @@
 
     <build>
 
+        <plugins>
+
+            <plugin>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>full-package</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <skip>${skip.assembly}</skip>
+                            <outputDirectory>${project.build.directory}/libs</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <descriptors>
+                        <descriptor>${project.parent.basedir}/assembly.xml</descriptor>
+                    </descriptors>
+                    <skipAssembly>${skip.assembly}</skipAssembly>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+
         <pluginManagement>
             <plugins>
 
                 <plugin>
                     <artifactId>maven-assembly-plugin</artifactId>
                     <version>${plugin.assembly}</version>
-                    <configuration>
-                        <descriptors>
-                            <descriptor>${project.parent.basedir}/assembly.xml</descriptor>
-                        </descriptors>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <id>make-assembly</id>
-                            <phase>package</phase>
-                            <goals>
-                                <goal>single</goal>
-                            </goals>
-                        </execution>
-                    </executions>
                 </plugin>
 
                 <plugin>
@@ -293,7 +320,6 @@
                                 <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                                 <addClasspath>true</addClasspath>
                                 <classpathPrefix>libs/</classpathPrefix>
-                                <mainClass>net.cactusthorn.micro.jettyjersey.Application</mainClass>
                             </manifest>
                             <manifestEntries>
                                 <Application-Name>MICRO</Application-Name>
@@ -339,37 +365,5 @@
         </pluginManagement>
 
     </build>
-
-    <profiles>
-
-        <profile>
-            <id>full</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <build>
-                <plugins>
-
-                    <plugin>
-                        <artifactId>maven-dependency-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>full-package</id>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>copy-dependencies</goal>
-                                </goals>
-                                <configuration>
-                                    <outputDirectory>${project.build.directory}/libs</outputDirectory>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-
-                </plugins>
-            </build>
-        </profile>
-
-    </profiles>
 
 </project>

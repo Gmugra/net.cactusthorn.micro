@@ -15,9 +15,7 @@
     <name>Micro :: JPA+Hibernate</name>
 
     <properties>
-
-        <skip.jooq-codegen>false</skip.jooq-codegen>
-
+        <skip.assembly>false</skip.assembly>
     </properties>
 
     <dependencies>
