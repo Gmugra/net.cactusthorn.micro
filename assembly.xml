@@ -26,10 +26,6 @@
 
 		<fileSet>
 			<directory>${project.build.directory}/libs</directory>
-			<excludes>
-				<exclude>**/junit-*</exclude>
-				<exclude>**/hamcrest-*</exclude>
-			</excludes>
 			<filtered>false</filtered>
 			<outputDirectory>./libs</outputDirectory>
 		</fileSet>

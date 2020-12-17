@@ -215,6 +215,7 @@
                         <configuration>
                             <skip>${skip.assembly}</skip>
                             <outputDirectory>${project.build.directory}/libs</outputDirectory>
+                            <includeScope>runtime</includeScope>
                         </configuration>
                     </execution>
                 </executions>
