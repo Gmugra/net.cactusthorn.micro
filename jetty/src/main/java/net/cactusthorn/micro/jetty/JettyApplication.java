@@ -2,10 +2,14 @@ package net.cactusthorn.micro.jetty;
 
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
-
+import org.eclipse.jetty.servlet.ServletHolder;
+import org.glassfish.jersey.servlet.ServletContainer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import net.cactusthorn.micro.core.dagger.entrypoint.ApplicationComponent;
+import net.cactusthorn.micro.jersey.JerseyResourceConfig;
+import net.cactusthorn.micro.jersey.JerseyServletContextListner;
 import net.cactusthorn.micro.jetty.dagger.*;
 
 public class JettyApplication {
@@ -20,7 +24,7 @@ public class JettyApplication {
 
         component.flyway().migrate();
 
-        ServletContextHandler servletContext = component.jerseyServletContextHandler();
+        ServletContextHandler servletContext = servletContextHandler(component);
 
         Server jetty = new Server(8080);
         jetty.setStopAtShutdown(true);
@@ -34,5 +38,21 @@ public class JettyApplication {
         } finally {
             jetty.destroy();
         }
+    }
+
+    public static ServletContextHandler servletContextHandler(ApplicationComponent applicationComponent) {
+
+        JerseyResourceConfig resourceConfig = new JerseyResourceConfig(applicationComponent);
+
+        ServletContainer jerseyServletContainer = new ServletContainer(resourceConfig);
+        ServletHolder servletHolder = new ServletHolder(jerseyServletContainer);
+        servletHolder.setInitOrder(0);
+
+        ServletContextHandler servletContext = new ServletContextHandler(ServletContextHandler.SESSIONS);
+        servletContext.addEventListener(new JerseyServletContextListner(applicationComponent));
+        servletContext.setContextPath("/");
+        servletContext.addServlet(servletHolder, "/rest/*");
+
+        return servletContext;
     }
 }

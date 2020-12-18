@@ -1,20 +1,30 @@
 package net.cactusthorn.micro.jetty.dagger;
 
 import net.cactusthorn.micro.core.banner.Banner;
-
+import net.cactusthorn.micro.core.dagger.entrypoint.ApplicationComponent;
+import net.cactusthorn.micro.core.dagger.entrypoint.EntryPoint;
+import net.cactusthorn.micro.core.dagger.entrypoint.EntryPointComponentBuilder;
+import net.cactusthorn.micro.db.jooq.dagger.JooqModule;
+import net.cactusthorn.micro.jersey.dagger.RequestScopeModule;
+import net.cactusthorn.micro.jersey.dagger.SessionScopeBuilderModule;
 import dagger.*;
+
+import java.util.Map;
+
 import javax.inject.*;
 
-import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.flywaydb.core.Flyway;
 
-@Component(modules = { JettyModule.class })
-@Singleton
-public interface JettyComponent {
+@Singleton @Component(modules = { RequestScopeModule.class, SessionScopeBuilderModule.class, JooqModule.class }) //
+public interface JettyComponent extends ApplicationComponent {
+
+    @Override //
+    public Map<Class<?>, Provider<EntryPoint>> requestScopeEntryPoints();
+
+    @Override @SuppressWarnings("rawtypes") //
+    public EntryPointComponentBuilder sessionScopeComponentBuilder();
 
     Banner banner();
 
     Flyway flyway();
-
-    ServletContextHandler jerseyServletContextHandler();
 }

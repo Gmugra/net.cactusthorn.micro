@@ -6,17 +6,17 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-@Path("api")
+import net.cactusthorn.micro.core.dagger.entrypoint.EntryPoint;
+
+@Path("api") //
 public class TestRest2 implements EntryPoint {
 
-    @Inject
+    @Inject //
     public TestRest2() {
     }
 
-    @GET // GET request
-    @Produces(MediaType.TEXT_PLAIN) // Response type
-    @Path("ping2") // Endpoint path
+    @GET @Produces(MediaType.TEXT_PLAIN) @Path("ping2") //
     public String ping() {
-        return "TestRest2@" + hashCode();
+        return "TestRest2@" + this.hashCode();
     }
 }

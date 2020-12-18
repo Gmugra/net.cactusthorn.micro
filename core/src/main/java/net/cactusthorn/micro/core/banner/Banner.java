@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 
 import net.cactusthorn.micro.core.configuration.AppInfo;
 
-@Singleton
+@Singleton //
 public class Banner {
 
     private static final Logger LOG = LoggerFactory.getLogger(Banner.class);
@@ -21,7 +21,7 @@ public class Banner {
     private AppInfo appInfo;
     private String banner;
 
-    @Inject
+    @Inject //
     public Banner(AppInfo appInfo) {
         this.appInfo = appInfo;
         try (InputStream in = getClass().getClassLoader().getResourceAsStream("banner.txt");

@@ -4,7 +4,7 @@ import net.cactusthorn.micro.core.logger.LogbackCoreConfigurator;
 
 public class LogbackJPAHibernateConfigurator extends LogbackCoreConfigurator {
 
-    @Override
+    @Override //
     protected String configFile() {
         return "logback-jpahibernate.xml";
     }

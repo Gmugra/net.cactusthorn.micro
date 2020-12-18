@@ -8,19 +8,17 @@ import javax.inject.Singleton;
 
 import org.aeonbits.owner.*;
 
-@Module
+@Module //
 public class CoreModule {
 
-    @Provides
-    @Singleton
+    @Provides @Singleton //
     public static Factory provideConfigFactory() {
         Factory factory = ConfigFactory.newInstance();
         factory.registerLoader(new JarManifest());
         return factory;
     }
 
-    @Provides
-    @Singleton
+    @Provides @Singleton //
     public static AppInfo provideAppConfig(Factory factory) {
         return factory.create(AppInfo.class);
     }

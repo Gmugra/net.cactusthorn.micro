@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.*;
 @XmlAccessorType(XmlAccessType.NONE)
 public class TestRestPingResponse {
 
-    @XmlElement(name = "active")
+    @XmlElement(name = "alpha3")
     private String alpha3;
 
     public TestRestPingResponse(String alpha3) {

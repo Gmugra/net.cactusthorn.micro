@@ -4,7 +4,7 @@ import net.cactusthorn.micro.core.logger.LogbackCoreConfigurator;
 
 public class LogbackJooqConfigurator extends LogbackCoreConfigurator {
 
-    @Override
+    @Override //
     protected String configFile() {
         return "logback-jooq.xml";
     }

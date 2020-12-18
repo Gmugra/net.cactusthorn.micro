@@ -5,8 +5,7 @@ import java.util.List;
 import org.aeonbits.owner.Config;
 import static org.aeonbits.owner.Config.*;
 
-@LoadPolicy(LoadType.MERGE)
-@Sources({ "jar:///manifest?Application-Name=MICRO" })
+@LoadPolicy(LoadType.MERGE) @Sources({ "jar:///manifest?Application-Name=MICRO" }) //
 public interface AppInfo extends Config {
 
     String CONFIG_FILE_NAME = "micro.properties";
@@ -14,20 +13,18 @@ public interface AppInfo extends Config {
     String CONFIG_CURRENT_WORKING_FOLDER = "file:./" + CONFIG_FILE_NAME;
     String CONFIG_CLASSPATH = "classpath:" + CONFIG_FILE_NAME;
 
-    @Key("Implementation-Version")
-    @DefaultValue("unknown")
+    @Key("Implementation-Version") @DefaultValue("unknown") //
     String version();
 
-    @Key("Build-Time")
-    @DefaultValue("unknown")
+    @Key("Build-Time") @DefaultValue("unknown") //
     String buildTime();
 
-    @Key("Implementation-Title")
-    @DefaultValue("unknown")
+    @Key("Implementation-Title") @DefaultValue("unknown") //
     String title();
 
+    @Key("Class-Path") //
     @Separator(" ")
-    @Key("Class-Path")
-    @DefaultValue("unknown")
+
+    @DefaultValue("unknown") //
     List<String> classPath();
 }

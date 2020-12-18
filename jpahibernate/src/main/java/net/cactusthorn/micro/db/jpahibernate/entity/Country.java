@@ -2,18 +2,16 @@ package net.cactusthorn.micro.db.jpahibernate.entity;
 
 import javax.persistence.*;
 
-@Entity(name = "country")
+@Entity(name = "country") //
 public class Country {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Id @Column(name = "id") @GeneratedValue(strategy = GenerationType.IDENTITY) //
     private Integer id;
 
-    @Column(name = "alpha2")
+    @Column(name = "alpha2") //
     private String alpha2;
 
-    @Column(name = "alpha3")
+    @Column(name = "alpha3") //
     private String alpha3;
 
     public Integer getId() {

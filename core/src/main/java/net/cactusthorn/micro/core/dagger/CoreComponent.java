@@ -6,8 +6,7 @@ import dagger.Component;
 import net.cactusthorn.micro.core.banner.Banner;
 import net.cactusthorn.micro.core.configuration.AppInfo;
 
-@Component(modules = { CoreModule.class })
-@Singleton
+@Singleton @Component(modules = { CoreModule.class }) //
 public interface CoreComponent {
 
     Banner banner();

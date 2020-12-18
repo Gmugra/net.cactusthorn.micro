@@ -4,58 +4,26 @@ import java.util.Map;
 
 import javax.inject.*;
 
-import org.glassfish.hk2.api.Factory;
-import org.glassfish.hk2.utilities.binding.AbstractBinder;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import net.cactusthorn.micro.jersey.rest.EntryPoint;
+import net.cactusthorn.micro.core.dagger.entrypoint.ApplicationComponent;
+import net.cactusthorn.micro.core.dagger.entrypoint.EntryPoint;
 
 public class JerseyResourceConfig extends ResourceConfig {
 
-    private static Map<Class<?>, Provider<EntryPoint>> entryPoints;
+    private static final Logger LOG = LoggerFactory.getLogger(JerseyResourceConfig.class);
 
-    @Inject
-    public JerseyResourceConfig(Map<Class<?>, Provider<EntryPoint>> entryPoints) {
+    public JerseyResourceConfig(ApplicationComponent applicationComponent) {
+        register(applicationComponent.requestScopeEntryPoints());
+        register(applicationComponent.sessionScopeComponentBuilder().build().entryPoints());
+    }
 
-        JerseyResourceConfig.entryPoints = entryPoints;
-
+    private void register(Map<Class<?>, Provider<EntryPoint>> entryPoints) {
         for (Class<?> clazz : entryPoints.keySet()) {
             register(clazz);
-        }
-        register(EntryPointBilder.class);
-    }
-
-    private static class EntryPointBilder extends AbstractBinder {
-
-        private static final Logger LOG = LoggerFactory.getLogger(EntryPointBilder.class);
-
-        @Override
-        protected void configure() {
-            for (Class<?> clazz : entryPoints.keySet()) {
-                bindFactory(new EntryPointFactory(clazz)).to(clazz);
-                LOG.info("binded: {}", clazz);
-            }
-        }
-
-    }
-
-    private static class EntryPointFactory implements Factory<EntryPoint> {
-
-        private Class<?> entryPointClass;
-
-        private EntryPointFactory(Class<?> entryPointClass) {
-            this.entryPointClass = entryPointClass;
-        }
-
-        @Override
-        public EntryPoint provide() {
-            return entryPoints.get(entryPointClass).get();
-        }
-
-        @Override
-        public void dispose(EntryPoint entryPoint) {
+            LOG.info("REGISTERED: {}", clazz.getName());
         }
     }
 

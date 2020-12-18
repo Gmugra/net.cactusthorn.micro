@@ -13,17 +13,15 @@ import javax.sql.DataSource;
 import org.jooq.*;
 import org.jooq.impl.*;
 
-@Module(includes = DatabaseModule.class)
+@Module(includes = DatabaseModule.class) //
 public abstract class JooqModule {
 
-    @Provides
-    @Singleton
+    @Provides @Singleton //
     public static JooqConf provideJooqConfig(Factory factory) {
         return factory.create(JooqConf.class);
     }
 
-    @Provides
-    @Singleton
+    @Provides @Singleton //
     public static DSLContext provideDDLContext(DataSource dataSource, JooqConf conf) {
 
         org.jooq.Configuration jooqConfig = new DefaultConfiguration();

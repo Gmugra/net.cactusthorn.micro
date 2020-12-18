@@ -7,12 +7,12 @@ import org.jooq.*;
 
 import static net.cactusthorn.micro.db.jooq.tables.Country.*;
 
-@Singleton
+@Singleton //
 public class TestService {
 
     private DSLContext dsl;
 
-    @Inject
+    @Inject //
     public TestService(DSLContext dsl) {
         this.dsl = dsl;
     }

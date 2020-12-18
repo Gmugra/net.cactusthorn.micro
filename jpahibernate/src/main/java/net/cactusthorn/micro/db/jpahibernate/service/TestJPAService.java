@@ -6,12 +6,12 @@ import javax.persistence.*;
 
 import net.cactusthorn.micro.db.jpahibernate.entity.Country;
 
-@Singleton
+@Singleton //
 public class TestJPAService {
 
     private EntityManagerFactory factory;
 
-    @Inject
+    @Inject //
     public TestJPAService(EntityManagerFactory factory) {
         this.factory = factory;
     }

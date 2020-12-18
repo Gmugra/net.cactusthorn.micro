@@ -13,17 +13,14 @@ import org.aeonbits.owner.Factory;
 import net.cactusthorn.micro.db.dagger.DatabaseModule;
 import net.cactusthorn.micro.db.jpahibernate.configuration.JPAHibernateConf;
 
-@Module(includes = DatabaseModule.class)
-public class JPAHibernateModule {
+@Module(includes = DatabaseModule.class) public class JPAHibernateModule {
 
-    @Provides
-    @Singleton
+    @Provides @Singleton //
     public static JPAHibernateConf provideJPAHibernateConf(Factory factory) {
         return factory.create(JPAHibernateConf.class);
     }
 
-    @Provides
-    @Singleton
+    @Provides @Singleton //
     public static EntityManagerFactory provideEntityManagerFactory(DataSource dataSource, JPAHibernateConf conf) {
 
         Map<String, Object> props = new HashMap<String, Object>();

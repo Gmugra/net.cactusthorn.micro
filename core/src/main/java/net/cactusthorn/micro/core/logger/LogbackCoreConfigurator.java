@@ -12,7 +12,7 @@ import ch.qos.logback.core.util.StatusPrinter;
 
 public class LogbackCoreConfigurator extends ContextAwareBase implements Configurator {
 
-    @Override
+    @Override //
     public void configure(LoggerContext loggerContext) {
         try {
             JoranConfigurator configurator = new JoranConfigurator();

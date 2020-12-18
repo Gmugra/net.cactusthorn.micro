@@ -9,8 +9,7 @@ import dagger.Component;
 import net.cactusthorn.micro.core.banner.Banner;
 import net.cactusthorn.micro.db.jpahibernate.service.TestJPAService;
 
-@Component(modules = { JPAHibernateModule.class })
-@Singleton
+@Singleton @Component(modules = { JPAHibernateModule.class }) //
 public interface JPAHibernateComponent {
 
     Banner banner();

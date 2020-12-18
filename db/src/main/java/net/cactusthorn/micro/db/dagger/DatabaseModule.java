@@ -13,23 +13,20 @@ import com.zaxxer.hikari.*;
 
 import org.flywaydb.core.Flyway;
 
-@Module(includes = CoreModule.class)
+@Module(includes = CoreModule.class) //
 public abstract class DatabaseModule {
 
-    @Provides
-    @Singleton
+    @Provides @Singleton //
     public static HikariConf provideHikariConf(Factory factory) {
         return factory.create(HikariConf.class);
     }
 
-    @Provides
-    @Singleton
+    @Provides @Singleton //
     public static FlywayConf provideFlywayConf(Factory factory) {
         return factory.create(FlywayConf.class);
     }
 
-    @Provides
-    @Singleton
+    @Provides @Singleton //
     public static HikariDataSource provideHikariDataSource(HikariConf conf) {
 
         HikariConfig hikariConfig = new HikariConfig();
@@ -45,11 +42,10 @@ public abstract class DatabaseModule {
         return new HikariDataSource(hikariConfig);
     }
 
-    @Binds
+    @Binds //
     public abstract DataSource bindDataSource(HikariDataSource hikariDataSource);
 
-    @Provides
-    @Singleton
+    @Provides @Singleton //
     public static Flyway provideFlyway(DataSource dataSource, FlywayConf conf) {
         return Flyway.configure().locations(conf.locations()).dataSource(dataSource).load();
     }

@@ -7,11 +7,9 @@ import static net.cactusthorn.micro.core.configuration.AppInfo.*;
 
 import org.jooq.SQLDialect;
 
-@LoadPolicy(LoadType.MERGE)
-@Sources({CONFIG_SYSTEM_PROPERTY, CONFIG_CURRENT_WORKING_FOLDER, CONFIG_CLASSPATH})
+@LoadPolicy(LoadType.MERGE) @Sources({ CONFIG_SYSTEM_PROPERTY, CONFIG_CURRENT_WORKING_FOLDER, CONFIG_CLASSPATH }) //
 public interface JooqConf extends Config {
 
-    @Key("jooq.dialect")
-    @DefaultValue("POSTGRES")
-    SQLDialect dialect(); 
+    @Key("jooq.dialect") @DefaultValue("POSTGRES") //
+    SQLDialect dialect();
 }

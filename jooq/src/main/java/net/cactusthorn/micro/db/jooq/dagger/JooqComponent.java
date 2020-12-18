@@ -8,8 +8,7 @@ import org.flywaydb.core.Flyway;
 import dagger.Component;
 import javax.inject.Singleton;
 
-@Component(modules = { JooqModule.class })
-@Singleton
+@Component(modules = { JooqModule.class }) @Singleton //
 public interface JooqComponent {
 
     Banner banner();
