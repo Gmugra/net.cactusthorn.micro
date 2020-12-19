@@ -44,8 +44,14 @@ jooq -- 3.5 Mb
 
 jetty -- 2.1 Mb
 
-jersey -- 6.5 Mb
+jersey-server -- 3 Mb
+    jersey-hk2 -- 1.5 Mb
+    jersey-container-servlet-core -- +75 Kb
+    jersey-media-json-jackson -- 2 Mb
+    jersey-mvc -- 150 Kb
 
+
+thymeleaf - 1.5 Mb
 
 
 

@@ -4,6 +4,8 @@ import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
+import org.glassfish.jersey.server.mvc.Template;
+
 import net.cactusthorn.micro.core.dagger.entrypoint.EntryPoint;
 import net.cactusthorn.micro.db.jooq.service.TestService;
 
@@ -25,4 +27,8 @@ public class TestRest implements EntryPoint {
         return new TestRestPingResponse(result);
     }
 
+    @GET @Template(name = "/index.html") @Produces(MediaType.TEXT_HTML) @Path("get") //
+    public String get() {
+        return "FOO";
+    }
 }
