@@ -12,7 +12,6 @@ Potential benefits of this approach:
 
 ============================
 
-
 mvn -Pjooq generate-sources
 
 mvn -Pflyway initialize -Dflyway.defaultSchema=test_jooq -Dflyway.user=postgres -Dflyway.password=postgres
@@ -26,34 +25,39 @@ java -Dpass=megapass -jar db-0.2.jar
 
 one-jar -- 70Kb (rejected: problems)
 
-dagger -- 40 Kb
+Dependency injection:
+* [Dagger 2](https://dagger.dev/) -- 40 Kb
+* [Guice](https://github.com/google/guice) -- 2 Mb (rejected: too big VS Dagger)
+* [HK2](https://javaee.github.io/hk2/) -- 2 Mb (rejected: too big VS Dagger)
 
-guice -- 2 Mb (rejected: too big VS dagger)
-hk2 -- 2 Mb (rejected: too big VS dagger)
+Configuration management
+* [OWNER](https://github.com/lviggiano/owner) -- 100 Kb
 
-owner -- 100 Kb
-slf4j+logback -- 800 Kb
+Logging
+* [Slf4j](http://www.slf4j.org/) + [Logback](http://logback.qos.ch/) -- 800 Kb
+* [Log4j](https://logging.apache.org/log4j/2.x/manual/api.html) -- 2 Mb  (rejected: too big VS Slf4j + Logback)
 
-log4j -- 2 Mb  (rejected: too big VS slf4j+logback)
+Database migrations
+* [Flyway](https://flywaydb.org/) -- 700 Kb 
+* [Liquibase](https://www.liquibase.org/) -- 3.3 Mb (rejected: too big VS flyway)
 
-HikariCP -- 200 Kb
-PostgreSQL JDBC -- 1 Mb
-flyway -- 700 Kb
+Database
+* [HikariCP](https://github.com/brettwooldridge/HikariCP) -- 200 Kb
+* PostgreSQL JDBC -- 1 Mb
+* [jOOQ](https://www.jooq.org/) -- 3.5 Mb
 
-jooq -- 3.5 Mb
+Embed Servlet container
+* [Jetty](https://www.eclipse.org/jetty/) -- 2.1 Mb
+* [Tomcat](https://tomcat.apache.org/) -- 3.3 Mb
+* [Undertow](https://undertow.io/) -- 4 Mb
 
-jetty -- 2.1 Mb
+JAX-RS
+* [Jersey](https://eclipse-ee4j.github.io/jersey/)
+  * jersey-server -- 3 Mb
+  * jersey-hk2 -- 1.5 Mb
+  * jersey-container-servlet-core -- +75 Kb
+  * jersey-media-json-jackson -- 2 Mb
+  * jersey-mvc -- 150 Kb
 
-jersey-server -- 3 Mb
-    jersey-hk2 -- 1.5 Mb
-    jersey-container-servlet-core -- +75 Kb
-    jersey-media-json-jackson -- 2 Mb
-    jersey-mvc -- 150 Kb
-
-
-thymeleaf - 1.5 Mb
-
-
-
-
-
+Template Engine
+* [Thymeleaf](https://www.thymeleaf.org/) - 1.5 Mb
