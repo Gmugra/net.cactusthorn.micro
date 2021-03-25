@@ -45,6 +45,7 @@ Database
 * [HikariCP](https://github.com/brettwooldridge/HikariCP) -- 200 Kb
 * PostgreSQL JDBC -- 1 Mb
 * [jOOQ](https://www.jooq.org/) -- 3.5 Mb
+* [Jdbi](http://jdbi.org/) -- 2 Mb 	:bangbang:
 
 Embed Servlet container
 * [Jetty](https://www.eclipse.org/jetty/) -- 2.1 Mb
