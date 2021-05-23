@@ -154,8 +154,13 @@ public class Address extends TableImpl<AddressRecord> {
         return Arrays.<ForeignKey<AddressRecord, ?>>asList(Keys.FK_ADDRESS_COUNTRY);
     }
 
+    private transient Country _country;
+
     public Country country() {
-        return new Country(this, Keys.FK_ADDRESS_COUNTRY);
+        if (_country == null)
+            _country = new Country(this, Keys.FK_ADDRESS_COUNTRY);
+
+        return _country;
     }
 
     @Override

@@ -1,9 +1,8 @@
 package net.cactusthorn.micro.db.dagger;
 
+import net.cactusthorn.config.core.ConfigFactory;
 import net.cactusthorn.micro.core.dagger.CoreModule;
 import net.cactusthorn.micro.db.configuration.*;
-
-import org.aeonbits.owner.Factory;
 
 import javax.inject.*;
 import dagger.*;
@@ -17,12 +16,12 @@ import org.flywaydb.core.Flyway;
 public abstract class DatabaseModule {
 
     @Provides @Singleton //
-    public static HikariConf provideHikariConf(Factory factory) {
+    public static HikariConf provideHikariConf(ConfigFactory factory) {
         return factory.create(HikariConf.class);
     }
 
     @Provides @Singleton //
-    public static FlywayConf provideFlywayConf(Factory factory) {
+    public static FlywayConf provideFlywayConf(ConfigFactory factory) {
         return factory.create(FlywayConf.class);
     }
 
@@ -47,7 +46,7 @@ public abstract class DatabaseModule {
 
     @Provides @Singleton //
     public static Flyway provideFlyway(DataSource dataSource, FlywayConf conf) {
-        return Flyway.configure().locations(conf.locations()).dataSource(dataSource).load();
+        String[] locations = conf.locations().toArray(new String[0]);
+        return Flyway.configure().locations(locations).dataSource(dataSource).load();
     }
-
 }

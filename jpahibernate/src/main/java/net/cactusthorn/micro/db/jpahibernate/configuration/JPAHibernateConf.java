@@ -1,18 +1,16 @@
 package net.cactusthorn.micro.db.jpahibernate.configuration;
 
-import static net.cactusthorn.micro.core.configuration.AppInfo.*;
+import net.cactusthorn.config.core.Config;
+import net.cactusthorn.config.core.Disable;
+import net.cactusthorn.config.core.Disable.Feature;
+import net.cactusthorn.config.core.Key;
+import net.cactusthorn.config.core.Prefix;
 
-import org.aeonbits.owner.Config;
+@Config @Prefix("hibernate") public interface JPAHibernateConf {
 
-@LoadPolicy(LoadType.MERGE) @Sources({ CONFIG_SYSTEM_PROPERTY, CONFIG_CURRENT_WORKING_FOLDER, CONFIG_CLASSPATH }) //
-public interface JPAHibernateConf extends Config {
+    @Disable(Feature.PREFIX) @Key("jpa.persistenceUnitName") String persistenceUnitName();
 
-    @Key("jpa.persistenceUnitName") //
-    String persistenceUnitName();
-
-    @Key("hibernate.dialect") //
     String dialect();
 
-    @Key("hibernate.show_sql") //
     boolean show_sql();
 }

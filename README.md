@@ -32,6 +32,7 @@ Dependency injection:
 
 Configuration management
 * [OWNER](https://github.com/lviggiano/owner) -- 100 Kb
+* [Config](https://github.com/Gmugra/net.cactusthorn.config) -- 70 Kb + TOML support (+500 Kb)
 
 Logging
 * [Slf4j](http://www.slf4j.org/) + [Logback](http://logback.qos.ch/) -- 800 Kb

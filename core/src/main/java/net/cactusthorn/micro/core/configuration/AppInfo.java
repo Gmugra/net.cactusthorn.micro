@@ -2,29 +2,25 @@ package net.cactusthorn.micro.core.configuration;
 
 import java.util.List;
 
-import org.aeonbits.owner.Config;
-import static org.aeonbits.owner.Config.*;
+import net.cactusthorn.config.core.Config;
+import net.cactusthorn.config.core.Key;
+import net.cactusthorn.config.core.Default;
+import net.cactusthorn.config.core.Split;
 
-@LoadPolicy(LoadType.MERGE) @Sources({ "jar:///manifest?Application-Name=MICRO" }) //
-public interface AppInfo extends Config {
+@Config(sources="classpath:jar:manifest?Application-Name=MICRO") //
+public interface AppInfo {
 
-    String CONFIG_FILE_NAME = "micro.properties";
-    String CONFIG_SYSTEM_PROPERTY = "file:/${micro-config-path}/" + CONFIG_FILE_NAME;
-    String CONFIG_CURRENT_WORKING_FOLDER = "file:./" + CONFIG_FILE_NAME;
-    String CONFIG_CLASSPATH = "classpath:" + CONFIG_FILE_NAME;
-
-    @Key("Implementation-Version") @DefaultValue("unknown") //
+    @Key("Implementation-Version") @Default("unknown") //
     String version();
 
-    @Key("Build-Time") @DefaultValue("unknown") //
+    @Key("Build-Time") @Default("unknown") //
     String buildTime();
 
-    @Key("Implementation-Title") @DefaultValue("unknown") //
+    @Key("Implementation-Title") @Default("unknown") //
     String title();
 
     @Key("Class-Path") //
-    @Separator(" ")
-
-    @DefaultValue("unknown") //
+    @Split(" ") //
+    @Default("unknown") //
     List<String> classPath();
 }

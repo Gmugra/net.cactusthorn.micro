@@ -18,6 +18,11 @@ public class JettyApplication {
 
     public static void main(String... args) {
 
+        // java.util.logging -> SLF4j
+        org.slf4j.bridge.SLF4JBridgeHandler.removeHandlersForRootLogger();
+        org.slf4j.bridge.SLF4JBridgeHandler.install();
+        java.util.logging.Logger.getLogger("").setLevel(java.util.logging.Level.FINEST);
+
         JettyComponent component = DaggerJettyComponent.create();
 
         component.banner().show();

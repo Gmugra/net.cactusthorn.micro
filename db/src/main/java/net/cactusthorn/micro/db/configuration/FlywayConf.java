@@ -1,12 +1,11 @@
 package net.cactusthorn.micro.db.configuration;
 
-import static net.cactusthorn.micro.core.configuration.AppInfo.*;
+import java.util.List;
 
-import org.aeonbits.owner.Config;
+import net.cactusthorn.config.core.Config;
+import net.cactusthorn.config.core.Key;
 
-@LoadPolicy(LoadType.MERGE) @Sources({ CONFIG_SYSTEM_PROPERTY, CONFIG_CURRENT_WORKING_FOLDER, CONFIG_CLASSPATH }) //
-public interface FlywayConf extends Config {
+@Config public interface FlywayConf {
 
-    @Key("flyway.locations") @Separator(";") //
-    public String[] locations();
+    @Key("flyway.locations") public List<String> locations();
 }

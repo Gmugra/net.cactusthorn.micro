@@ -1,9 +1,8 @@
 package net.cactusthorn.micro.db.jooq.dagger;
 
+import net.cactusthorn.config.core.ConfigFactory;
 import net.cactusthorn.micro.db.dagger.DatabaseModule;
 import net.cactusthorn.micro.db.jooq.configuration.*;
-
-import org.aeonbits.owner.Factory;
 
 import javax.inject.*;
 import dagger.*;
@@ -17,7 +16,7 @@ import org.jooq.impl.*;
 public abstract class JooqModule {
 
     @Provides @Singleton //
-    public static JooqConf provideJooqConfig(Factory factory) {
+    public static JooqConf provideJooqConfig(ConfigFactory factory) {
         return factory.create(JooqConf.class);
     }
 

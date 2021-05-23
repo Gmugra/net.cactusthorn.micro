@@ -8,15 +8,14 @@ import dagger.*;
 import javax.persistence.*;
 import javax.sql.DataSource;
 
-import org.aeonbits.owner.Factory;
-
+import net.cactusthorn.config.core.ConfigFactory;
 import net.cactusthorn.micro.db.dagger.DatabaseModule;
 import net.cactusthorn.micro.db.jpahibernate.configuration.JPAHibernateConf;
 
 @Module(includes = DatabaseModule.class) public class JPAHibernateModule {
 
     @Provides @Singleton //
-    public static JPAHibernateConf provideJPAHibernateConf(Factory factory) {
+    public static JPAHibernateConf provideJPAHibernateConf(ConfigFactory factory) {
         return factory.create(JPAHibernateConf.class);
     }
 

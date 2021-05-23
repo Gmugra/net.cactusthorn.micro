@@ -21,6 +21,11 @@
     <dependencies>
 
         <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jul-to-slf4j</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>net.cactusthorn.micro</groupId>
             <artifactId>core</artifactId>
             <version>${project.version}</version>

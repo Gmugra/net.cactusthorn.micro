@@ -1,0 +1,14 @@
+[hikari]
+#driver = "org.postgresql.Driver"
+url = "jdbc:postgresql://127.0.0.1:5432/postgres"
+schema = "test_jooq"
+username = "U79blAyCnFylcjX5wpCl/TVDHmy+MSSw"
+password = "QCawJxymWTh9WOKIzS8oPt1LlqXU3KzE"
+#minimum-idle = 1
+#maximum-pool-size = 5
+
+[flyway]
+locations = "/db/**/sql"
+
+[jooq]
+dialect = "POSTGRES"

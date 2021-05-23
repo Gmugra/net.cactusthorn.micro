@@ -122,7 +122,7 @@ public class AuditRecord extends EmbeddableRecordImpl<AuditRecord> implements Re
      * Create a detached AuditRecord
      */
     public AuditRecord() {
-        super(Internal.fields(Address.ADDRESS.AUDIT));
+        super(Internal.fieldsRow(Address.ADDRESS.AUDIT));
     }
 
     /**

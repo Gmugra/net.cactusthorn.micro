@@ -139,8 +139,13 @@ public class Customer extends TableImpl<CustomerRecord> {
         return Arrays.<ForeignKey<CustomerRecord, ?>>asList(Keys.FK_CUSTOMER_ADDRESS);
     }
 
+    private transient Address _address;
+
     public Address address() {
-        return new Address(this, Keys.FK_CUSTOMER_ADDRESS);
+        if (_address == null)
+            _address = new Address(this, Keys.FK_CUSTOMER_ADDRESS);
+
+        return _address;
     }
 
     @Override

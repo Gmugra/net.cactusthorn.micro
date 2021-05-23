@@ -2,24 +2,29 @@ package net.cactusthorn.micro.core.dagger;
 
 import dagger.*;
 import net.cactusthorn.micro.core.configuration.*;
-import net.cactusthorn.micro.core.configuration.owner.loader.*;
 
 import javax.inject.Singleton;
 
-import org.aeonbits.owner.*;
+import net.cactusthorn.config.core.ConfigFactory;
 
 @Module //
 public class CoreModule {
 
+    private static final String CONFIG_FILE_NAME = "micro.toml";
+
     @Provides @Singleton //
-    public static Factory provideConfigFactory() {
-        Factory factory = ConfigFactory.newInstance();
-        factory.registerLoader(new JarManifest());
-        return factory;
+    public static ConfigFactory provideConfigFactory() {
+        // @formatter:off
+        return ConfigFactory.builder()
+                .addSource("file:/{micro-config-path}/" + CONFIG_FILE_NAME)
+                .addSource("file:./" + CONFIG_FILE_NAME)
+                .addSource("classpath:" + CONFIG_FILE_NAME)
+                .build();
+        // @formatter:on
     }
 
     @Provides @Singleton //
-    public static AppInfo provideAppConfig(Factory factory) {
+    public static AppInfo provideAppConfig(ConfigFactory factory) {
         return factory.create(AppInfo.class);
     }
 

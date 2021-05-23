@@ -26,14 +26,12 @@
         </dependency>
 
         <dependency>
-            <groupId>org.aeonbits.owner</groupId>
-            <artifactId>owner</artifactId>
+            <groupId>net.cactusthorn.config</groupId>
+            <artifactId>config-jasypt</artifactId>
         </dependency>
-
         <dependency>
-            <groupId>org.jasypt</groupId>
-            <artifactId>jasypt</artifactId>
-            <classifier>lite</classifier>
+            <groupId>net.cactusthorn.config</groupId>
+            <artifactId>config-toml</artifactId>
         </dependency>
 
     </dependencies>
