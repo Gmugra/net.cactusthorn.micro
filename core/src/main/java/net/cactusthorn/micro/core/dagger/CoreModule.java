@@ -5,7 +5,7 @@ import net.cactusthorn.micro.core.configuration.*;
 
 import javax.inject.Singleton;
 
-import net.cactusthorn.config.core.ConfigFactory;
+import net.cactusthorn.config.core.factory.ConfigFactory;
 
 @Module //
 public class CoreModule {

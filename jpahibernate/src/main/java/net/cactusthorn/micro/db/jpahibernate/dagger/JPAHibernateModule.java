@@ -8,7 +8,7 @@ import dagger.*;
 import javax.persistence.*;
 import javax.sql.DataSource;
 
-import net.cactusthorn.config.core.ConfigFactory;
+import net.cactusthorn.config.core.factory.ConfigFactory;
 import net.cactusthorn.micro.db.dagger.DatabaseModule;
 import net.cactusthorn.micro.db.jpahibernate.configuration.JPAHibernateConf;
 

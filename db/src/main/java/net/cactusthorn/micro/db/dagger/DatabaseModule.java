@@ -1,6 +1,6 @@
 package net.cactusthorn.micro.db.dagger;
 
-import net.cactusthorn.config.core.ConfigFactory;
+import net.cactusthorn.config.core.factory.ConfigFactory;
 import net.cactusthorn.micro.core.dagger.CoreModule;
 import net.cactusthorn.micro.db.configuration.*;
 
