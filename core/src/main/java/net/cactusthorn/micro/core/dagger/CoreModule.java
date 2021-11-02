@@ -1,10 +1,11 @@
 package net.cactusthorn.micro.core.dagger;
 
-import dagger.*;
 import net.cactusthorn.micro.core.configuration.*;
 
 import javax.inject.Singleton;
 
+import dagger.Module;
+import dagger.Provides;
 import net.cactusthorn.config.core.factory.ConfigFactory;
 
 @Module //

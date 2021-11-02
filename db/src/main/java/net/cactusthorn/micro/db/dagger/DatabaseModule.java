@@ -5,10 +5,13 @@ import net.cactusthorn.micro.core.dagger.CoreModule;
 import net.cactusthorn.micro.db.configuration.*;
 
 import javax.inject.*;
-import dagger.*;
 
 import javax.sql.DataSource;
 import com.zaxxer.hikari.*;
+
+import dagger.Binds;
+import dagger.Module;
+import dagger.Provides;
 
 import org.flywaydb.core.Flyway;
 

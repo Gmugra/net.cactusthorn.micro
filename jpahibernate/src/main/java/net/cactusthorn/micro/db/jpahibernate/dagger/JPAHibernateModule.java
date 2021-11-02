@@ -3,11 +3,12 @@ package net.cactusthorn.micro.db.jpahibernate.dagger;
 import java.util.*;
 
 import javax.inject.*;
-import dagger.*;
 
 import javax.persistence.*;
 import javax.sql.DataSource;
 
+import dagger.Module;
+import dagger.Provides;
 import net.cactusthorn.config.core.factory.ConfigFactory;
 import net.cactusthorn.micro.db.dagger.DatabaseModule;
 import net.cactusthorn.micro.db.jpahibernate.configuration.JPAHibernateConf;

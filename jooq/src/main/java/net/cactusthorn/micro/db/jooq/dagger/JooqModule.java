@@ -5,12 +5,14 @@ import net.cactusthorn.micro.db.dagger.DatabaseModule;
 import net.cactusthorn.micro.db.jooq.configuration.*;
 
 import javax.inject.*;
-import dagger.*;
 
 import javax.sql.DataSource;
 
 import org.jooq.*;
 import org.jooq.impl.*;
+
+import dagger.Module;
+import dagger.Provides;
 
 @Module(includes = DatabaseModule.class) //
 public abstract class JooqModule {
