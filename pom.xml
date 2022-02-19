@@ -23,7 +23,7 @@
         <skip.assembly>true</skip.assembly>
 
         <dependency.dagger>2.40</dependency.dagger>
-        <dependency.config>0.70</dependency.config>
+        <dependency.config>0.80</dependency.config>
         <dependency.jooq>3.14.11</dependency.jooq>
         <dependency.flyway>7.9.1</dependency.flyway>
         <dependency.postgresql>42.2.20</dependency.postgresql>
